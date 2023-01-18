@@ -18,7 +18,7 @@ create table teams (
   insert into teams values(10,"give"),(20,"never"),(30,"you"),(40,"up"),(50,"gonna");
 
   insert into matches values(1,30,20,1,0),(2,10,20,1,2),( 3,20,50,2,2),(4,10,30,1,0),( 5,30,50,0,1);
-
+-- Using Join
   select t.team_id,t.team_name,sum(case 
   when t.team_id = m.host_team and m.host_goals>m.guest_goals then 3
   when t.team_id = m.host_team and m.host_goals=m.guest_goals then 1
@@ -27,3 +27,13 @@ create table teams (
   else 0
   end)as total_points
   from teams t,matches m group by t.team_id order by total_points desc ,t.team_id ;
+
+-- With out using join
+select t.team_id,t.team_name,sum(case 
+  when t.team_id = m.host_team and m.host_goals>m.guest_goals then 3
+  when t.team_id = m.host_team and m.host_goals=m.guest_goals then 1
+  when t.team_id = m.guest_team and  m.host_goals<m.guest_goals then 3
+  when t.team_id = m.guest_team and  m.host_goals=m.guest_goals then 1
+  else 0
+  end)as total_points
+  from teams t left join matches m on t.team_id=m.host_team or t.team_id=m.guest_team group by t.team_id order by total_points desc ,t.team_id ;
