@@ -1,5 +1,18 @@
 
+'''Write a function:
 
+def solution(A)
+
+that, given a non-empty array A, returns the value of the maximal product of any triplet.
+
+For example, given array A such that:
+
+  A[0] = -3   A[1] = 1   A[2] = 2   A[3] = -2   A[4] = 5   A[5] = 6
+
+the function should return 60, as the product of triplet (2, 4, 5)
+is maximal.
+'''
+#method 1
 def maxoftriplet(lis):
     res=0
     for i in lis:
@@ -11,7 +24,7 @@ def maxoftriplet(lis):
     return res
 print(maxoftriplet([3,1,2,22,5,6]))
 
-
+#method 2
 def maxoftriplet2(lis):
     res = 0
     for i in range (len(lis)):
@@ -22,7 +35,7 @@ def maxoftriplet2(lis):
     return res
 print(maxoftriplet2([3,1,2,22,5,6]))
 
-
+#method 3
 def maxoftriplet3(lis):
     res=0
     for i in range(len(lis)):
