@@ -21,5 +21,6 @@ insert into activity values(1,1,'2019-07-20',"open_session"),
 (4,3,'2019-06-25','end_session');
 
 select activity_date, count(distinct(user_id)) as 
-users from activity where datediff('2019-07-27',activity_date) <= 30 group by activity_date;     
+users from activity where datediff('2019-07-27',activity_date) between 0 and 30 group by activity_date;     
 
+select datediff('2019-07-27','2020-07-21') from activity;
