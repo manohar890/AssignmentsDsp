@@ -18,7 +18,7 @@ def Palindrome(n):
     if res == l:
         return True
     else: return False
-print(Palindrome(121))
+print(Palindrome(-121))
 
 
 #with Conversion
