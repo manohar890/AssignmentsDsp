@@ -41,7 +41,7 @@ insert into users2 values( 1,'No','client'),
 (12,'No','driver' ),
 (13,'No','driver');
 
-
+#Method 1
 with cte1 as(
 SELECT 
     t.request_at AS t, sum(if (t.status != 'completed',1,0)) AS c
@@ -60,6 +60,17 @@ FROM
          JOIN
     users2 u ON t.client_id = u.users_id
     join cte1 k on t.request_at=k.t
+WHERE
+    u.banned = 'no' and t.request_at between "2013-10-01" and "2013-10-03" 
+GROUP BY t.request_at order by t.request_at;
+
+#method 2
+SELECT 
+    t.request_at AS cancelation_date, round(sum(if(t.status!='completed',1,0))/count(*),2) AS Num
+FROM
+    trips t
+         JOIN
+    users2 u ON t.client_id = u.users_id
 WHERE
     u.banned = 'no' and t.request_at between "2013-10-01" and "2013-10-03" 
 GROUP BY t.request_at order by t.request_at;
