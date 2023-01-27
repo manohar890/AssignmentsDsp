@@ -1,0 +1,15 @@
+{
+         "app": [{
+                        "program": "sqlWorldCup.sql",
+                        "argument": ""
+                 },
+                {
+                        "program": "MaxProductOfThree.py",
+                         "argument": ""
+                },
+                {
+                    "program":"Palindrome_or_Not.py",
+                    "argument":""
+                }
+        ]
+ }
