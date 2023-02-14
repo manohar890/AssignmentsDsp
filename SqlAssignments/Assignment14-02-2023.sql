@@ -17,22 +17,24 @@ insert into customer_order values('John','J1','DELIVERED'),
 ('KRISH','K1','CREATED');
 INSERT INTO customer_order values('David','D1','CREATED');
 
-with info (name,del,cre,sub) as
+with info (customer_name,del,cre,sub) as
 (
 			select Customer_name, 
-			 sum(if(status='delivered',1,0)),
-			 sum(if(status='created',1,0)),
-             sum(if(status='submitted',1,0)) 
+			 sum(status='delivered'),
+			 sum(status='created'),
+             sum(status='submitted') 
              from customer_order 
              group by Customer_name
 )
-             select name,
+             select customer_name,
              case
              when del >0 and cre=0 and sub=0 then 'Completed'
              when del>0 then 'In Progress'
              when del=0 and sub > 0 then 'Awaiting Progress'
              else 'Awaiting Submission'
              end as Final_status 
-             from info order by name;
+             from info order by customer_name;
              
              
+             
+			
