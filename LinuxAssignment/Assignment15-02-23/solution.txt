@@ -1,0 +1,19 @@
+
+
+
+By Using Sort and Uniq:
+****************************
+
+
+(base) KA20408621@C02HF7D7Q6L5 LinuxAssignment % sort -f test.txt | uniq -i -d -c > result.txt
+						
+
+
+By using Awk:
+****************************
+
+
+
+(base) KA20408621@C02HF7D7Q6L5 LinuxAssignment % 
+
+awk '{for(w=1;w<=NF;w++) word[tolower($w)]++} END {for(k in word){if(word[k]>1){ print k,word[k]}}}' test.txt > awkresult.txt

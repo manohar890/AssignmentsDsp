@@ -1,0 +1,12 @@
+hello
+bat
+cat
+met
+cut 
+but
+hello
+cat
+Bat
+Hello
+Met
+

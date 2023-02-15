@@ -1,0 +1,110 @@
+
+
+$ cat test.txt
+	hello
+	bat
+	cat
+	met
+	cut 
+	but
+	hello
+	cat
+	Bat
+	Hello
+	Met
+
+
+## Test is a file which contains data on it.
+
+
+Assignment1:
+
+	Linux command to get duplicate word count in a file. Write the output to new file. 
+========================================================================================================
+
+   Solution By using "Sort" and "uniq" command :
+
+
+Sort = To sort file line by line either by alphabetically or numerically
+
+Uniq:  it is used to display the uniq records
+		it checks adjacent lines.
+
+
+--------Command-------
+
+
+KA20408621@C02HF7D7Q6L5 LinuxAssignment % sort -f test.txt | uniq  -idc
+   2 Bat
+   2 cat
+   3 Hello
+   2 Met
+
+Justification:
+
+		The file get sorted first by line by line and then uniq command displays duplicated lines and its respective count.
+		
+			sort :
+				-f : It is used to avoid case sensitive.
+				
+			'|' : The pipe command separates two commands
+			
+			uniq :
+				-I to avoid case sensitive
+				-d to display only duplicated lines
+				-c to display count
+______________________________________________________________________________________________________________________________________
+
+
+To store it in a new file:
+
+(base) KA20408621@C02HF7D7Q6L5 LinuxAssignment % sort -f test.txt | uniq -i -d -c > result.txt
+
+	## The above command  process the data and store it in a result.txt file by using '>' ;
+
+(base) KA20408621@C02HF7D7Q6L5 LinuxAssignment % cat result.txt                               
+   2 Bat
+   2 cat
+   3 Hello
+   2 Met
+--------------------------------------------------------------------------------------------------------
+
+### By Using Awk:
+
+(base) KA20408621@C02HF7D7Q6L5 LinuxAssignment % awk '{for(w=1;w<=NF;w++) word[tolower($w)]++} END {for(k in word){if(word[k]>1){ print k,word[k]}}}' test.txt
+
+bat 2
+cat 2
+hello 3
+met 2
+
+(base) KA20408621@C02HF7D7Q6L5 LinuxAssignment % touch awkresult.txt
+                                                                                          
+(base) KA20408621@C02HF7D7Q6L5 LinuxAssignment % 
+awk '{for(w=1;w<=NF;w++) word[tolower($w)]++} END {for(k in word){if(word[k]>1){ print k,word[k]}}}' test.txt > awkresult.txt
+
+(base) KA20408621@C02HF7D7Q6L5 LinuxAssignment % cat awkresult.txt
+bat 2
+cat 2
+hello 3
+met 2
+
+(base) KA20408621@C02HF7D7Q6L5 LinuxAssignment % 
+
+______________________________________________________________________________________
+
+Justification:
+	
+	The above awk command process the data and result the word and its count whose count > 1
+Explanation:
+
+	1. Initialise for loop of range (NF) Number of fields in a file 
+	
+	2. And taken an array to store count of each word with key of 'word' 
+	
+	
+	3.started iterating array and checking condition count of each word > 1 one , if > 1 print word and count of the word respectively
+
+	* tolower used to avoid casesensitive  
+
+------------------------------------------------------------------------------------------------------------------------
