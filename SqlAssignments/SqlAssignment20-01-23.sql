@@ -39,6 +39,6 @@ FROM
     users u
         JOIN
     orders o ON u.user_id = o.buyer_id
-GROUP BY o.buyer_id;
+GROUP BY u.user_id;
 
 select * from orders;
