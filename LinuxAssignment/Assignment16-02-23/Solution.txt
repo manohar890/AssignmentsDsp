@@ -1,0 +1,32 @@
+
+Question
+___________________
+
+
+Linux command to 
+	1.Swap the column (3<=> 2) of a file
+	2.After swapping if it has duplicated rows, then remove it.
+	3.Place the counts of line before and after conversion in the footer of output file.
+	4.Save it in a new file Demo2.txt
+
+SOLUTION:
+_______________
+
+
+awk '{M=$2;$2=$3;$3=M;}{!arr[$0]++}END{for (i in arr){count++;print i} print " Total Number of lines Before:", NR,"\n","Total Number of lines After:",count;}' day2.txt >> demo2.txt
+
+
+
+Justification :
+
+___________________
+
+The command first swaps column 2 and column 3.
+
+Then checks for duplicates and remove duplicates 
+
+At finally prints the data of swapped,
+
+The number of lines  present before removing duplicates and after removing duplicates.
+
+At Last it stores the final output in demo2.txt
