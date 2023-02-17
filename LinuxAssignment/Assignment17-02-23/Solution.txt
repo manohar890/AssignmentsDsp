@@ -1,0 +1,46 @@
+(base) KA20408621@C02HF7D7Q6L5 assignment % cat file1.txt
+
+Quod equidem non reprehendo;
+Lorem ipsum dolor sit amed. 
+consectetur adipiscing elit.
+Quibus natura iure responderit non esse verum aliunde finem beate vivendi.
+a se principia rei gerendae peti;
+We will concentrate on using a single editing command with sed, which is its most common use.
+We will learn two forms of addresses:
+Do you see how we must control the default behavior with the -n option?
+
+(base) KA20408621@C02HF7D7Q6L5 assignment % awk 'length($0)> 30' file1.txt >> file2.txt
+
+
+(base) KA20408621@C02HF7D7Q6L5 assignment % cat file2.txt
+
+Quibus natura iure responderit non esse verum aliunde finem beate vivendi.
+a se principia rei gerendae peti;
+We will concentrate on using a single editing command with sed, which is its most common use.
+We will learn two forms of addresses:
+Do you see how we must control the default behavior with the -n option?
+
+(base) KA20408621@C02HF7D7Q6L5 assignment % sed -r 's/[^a-zA-Z0-9]$//' file2.txt >> file3.txt
+
+(base) KA20408621@C02HF7D7Q6L5 assignment % cat file3.txt
+
+Quibus natura iure responderit non esse verum aliunde finem beate vivendi
+a se principia rei gerendae peti
+We will concentrate on using a single editing command with sed, which is its most common use
+We will learn two forms of addresses
+Do you see how we must control the default behavior with the -n option
+
+(base) KA20408621@C02HF7D7Q6L5 assignment % touch Solution.txt
+(base) KA20408621@C02HF7D7Q6L5 assignment % 
+
+
+
+
+
+
+
+
+
+
+
+
