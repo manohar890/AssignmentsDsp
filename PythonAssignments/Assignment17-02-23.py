@@ -16,8 +16,7 @@ def optimalPoint(magic,dist):
                 k=k+1                    
             if p!= -1:
                 return p
-    return -1
-    
+            
 print(optimalPoint([8, 4, 5, 8],[9, 4, 3, 5]))
 
             
