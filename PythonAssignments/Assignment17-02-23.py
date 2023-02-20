@@ -17,7 +17,20 @@ def optimalPoint(magic,dist):
             if p!= -1:
                 return p
             
-print(optimalPoint([8, 4, 5, 8],[9, 4, 3, 5]))
+print("Enter n Value:")
+n=int(input())
+magic=[]
+dist=[]
+print("Enter magics:")
+for i in range(n):
+    s=int(input())
+    magic.append(s)
+print("Enter Distances:")
+for j in range(n):
+    s=int(input())
+    dist.append(s)
+
+print("Optimal POint:=", optimalPoint(magic,dist))
 
             
         
